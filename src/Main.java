@@ -4,13 +4,13 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("введите число N");
         int n = scanner.nextInt();
-        int[] arr = { 0, 1, 2, 3, 4, 5, 6, 7};
+        int[] arr = { 1, 2, 3, 0, 5, 6, 7};
         metod(n, arr);
-        //System.out.println("вывод "+n);
+
     }
 
     public static void metod(int n, int[] arr) {
@@ -20,13 +20,16 @@ public class Main {
         try {
             for (int i = 0; i < arr.length; i++) {
 
-                System.out.println(n);
+                //System.out.println(n);
 
                 if (arr[i] == 0){
-                throw new Exception(" В массиве НУЛЬ ");
+                throw new OurExeption(" В массиве НУЛЬ ");
                 }
                 else {
                 n = n / arr[i];
+
+                System.out.println(n);
+
                 }
 
 
@@ -34,5 +37,10 @@ public class Main {
         } catch (Exception err) { // ловит объект ошибки
             System.out.println(err.getMessage());
         }
+    }
+} class OurExeption extends Exception {
+
+    public OurExeption(String message) {
+        super(message); //вызов конструктора родительского класса.
     }
 }
